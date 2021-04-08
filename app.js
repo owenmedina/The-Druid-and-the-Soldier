@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+app.set("view engine", "ejs");
 app.use(express.static(`${__dirname}/public`));
 
 const port = parseInt(process.env.APP_PORT_NUMBER);

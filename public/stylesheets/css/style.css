@@ -15,6 +15,7 @@
 
 body {
   box-sizing: border-box;
+  background-color: var(--color-black);
 }
 
 html {
@@ -36,6 +37,14 @@ body {
   border-radius: var(--border-radius-components);
 }
 
+.icon-love {
+  fill: var(--color-white);
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+  top: 1rem;
+}
+
 .game__story {
   border: var(--border-components);
   border-radius: var(--border-radius-components);
@@ -52,12 +61,21 @@ body {
   display: grid;
   grid-template-columns: [output-start] 1fr [output-end] 30vw;
   column-gap: 1rem;
-  background-color: var(--color-black);
   padding: 3rem;
 }
 .game__panel {
   display: flex;
   flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+.footer p {
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
