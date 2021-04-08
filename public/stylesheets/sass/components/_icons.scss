@@ -1,7 +1,17 @@
-.icon-love {
+.icon {
   fill: var(--color-white);
+}
+
+.icon-love {
   height: 3rem;
   width: 3rem;
   position: relative;
   top: 1rem;
+}
+
+.icon-story {
+  height: var(--font-size-story);
+  width: var(--font-size-story);
+  position: relative;
+  top: 0.5rem;
 }

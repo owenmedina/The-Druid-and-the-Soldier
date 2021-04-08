@@ -1,4 +1,8 @@
 .game__story {
   border: var(--border-components);
   border-radius: var(--border-radius-components);
+
+  font-size: var(--font-size-story);
+  line-height: 1.25;
+  padding: 2rem;
 }

@@ -5,8 +5,6 @@ const express = require("express");
 const liveReload = require("livereload"); // Reloading browser when public/ files change
 const connectLiveReload = require("connect-livereload"); // Appends script on alll the rendered/sent files through the server's response object
 const publicDirectory = path.join(__dirname, "public");
-const intro = require("./public/js/intro");
-// const config = require(path.join(__dirname, "config.js"));
 
 const liveReloadServer = liveReload.createServer(); // Creates a server that listens for changes
 liveReloadServer.watch(publicDirectory); // Watches changes in the public folder
@@ -28,7 +26,7 @@ const port = parseInt(process.env.APP_PORT_NUMBER);
 app.get("/", function (req, res) {
   console.log("At the /");
   res.render("index", {
-    intro: intro.intro,
+    level: "intro",
   });
 });
 

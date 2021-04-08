@@ -1,8 +1,9 @@
 :root {
-  --color-black: #000;
-  --color-white: #fff;
   --border-components: 0.5rem solid var(--color-white);
   --border-radius-components: 0.2rem;
+  --color-black: #000;
+  --color-white: #fff;
+  --font-size-story: 2.25rem;
 }
 
 *,
@@ -37,17 +38,30 @@ body {
   border-radius: var(--border-radius-components);
 }
 
-.icon-love {
+.icon {
   fill: var(--color-white);
+}
+
+.icon-love {
   height: 3rem;
   width: 3rem;
   position: relative;
   top: 1rem;
 }
 
+.icon-story {
+  height: var(--font-size-story);
+  width: var(--font-size-story);
+  position: relative;
+  top: 0.5rem;
+}
+
 .game__story {
   border: var(--border-components);
   border-radius: var(--border-radius-components);
+  font-size: var(--font-size-story);
+  line-height: 1.25;
+  padding: 2rem;
 }
 
 .game__user-input {

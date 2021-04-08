@@ -1,5 +1,9 @@
-const interAttemptTimeout = 100;
-const maxDisconnectedTime = 3000;
-const maxAttempts = Math.round(maxDisconnectedTime / interAttemptTimeout);
+const fs = require("fs");
+const path = require("path");
 
-module.exports = { interAttemptTimeout, maxDisconnectedTime, maxAttempts };
+// const CLIENT_WEBSOCKET_CODE = fs.readFileSync(
+//   path.join(__dirname, "websocket.js"),
+//   "utf8"
+// );
+
+// module.exports = { CLIENT_WEBSOCKET_CODE };
