@@ -1,12 +1,16 @@
 :root {
-  ////////////////////////// COLORS //////////////////////////
-  --color-black: #000;
-
-  --color-white: #fff;
-
   ////////////////////////// BORDERS //////////////////////////
   --border-components: 0.5rem solid var(--color-white);
 
   // Border Radius
   --border-radius-components: 0.2rem;
+
+  ////////////////////////// COLORS //////////////////////////
+  --color-black: #000;
+
+  --color-white: #fff;
+
+  ////////////////////////// FONTS //////////////////////////
+  // Sizes
+  --font-size-story: 2.25rem;
 }
