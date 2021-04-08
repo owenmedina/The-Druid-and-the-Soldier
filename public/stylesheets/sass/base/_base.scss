@@ -6,17 +6,8 @@
   box-sizing: inherit;
 }
 
-html {
-  font-size: 62.5%; // 1rem = 10px
-}
-
 body {
   box-sizing: border-box;
-  padding: 3rem;
 
-  background-color: var(--color-black);
-}
-
-h1 {
-  color: orangered;
+  // background-color: var(--color-black);
 }
