@@ -1,5 +1,8 @@
 :root {
   --color-black: #000;
+  --color-white: #fff;
+  --border-components: 0.5rem solid var(--color-white);
+  --border-radius-components: 0.2rem;
 }
 
 *,
@@ -10,18 +13,51 @@
   box-sizing: inherit;
 }
 
+body {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  box-sizing: border-box;
-  padding: 3rem;
-  background-color: var(--color-black);
+  font-family: "Visitor TT2 BRK", sans-serif;
+  color: var(--color-white);
 }
 
-h1 {
-  color: orangered;
+.mt-sm {
+  margin-top: 2rem;
+}
+
+.game__animation {
+  flex: 0 1 40%;
+  border: var(--border-components);
+  border-radius: var(--border-radius-components);
+}
+
+.game__story {
+  border: var(--border-components);
+  border-radius: var(--border-radius-components);
+}
+
+.game__user-input {
+  flex: 0 1 7.5%;
+  border: var(--border-components);
+  border-radius: var(--border-radius-components);
+}
+
+.game {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: [output-start] 1fr [output-end] 30vw;
+  column-gap: 1rem;
+  background-color: var(--color-black);
+  padding: 3rem;
+}
+.game__panel {
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=style.css.map */
