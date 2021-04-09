@@ -11,13 +11,25 @@
   <body>
     <div class="game">
       <div class="game__story">
-        <%- include(`partials/levels/${level}.ejs`); %>
+        <%- include("partials/levels/level.ejs", {context: context, question:
+        question, choices: choices}); %>
       </div>
       <div class="game__panel">
         <div class="game__animation"></div>
         <div class="game__user-input mt-sm">
-          <form action="/action" class="action-form" method="POST">
-            <input type="text" class="action-input" />
+          <form
+            action="/action"
+            class="action-form"
+            method="POST"
+            autocomplete="off"
+          >
+            <input
+              type="text"
+              class="action-input"
+              name="answer"
+              spellcheck="false"
+            />
+            <input type="hidden" name="level" value="<%= level %>" />
           </form>
         </div>
       </div>

@@ -34,13 +34,17 @@ const port = parseInt(process.env.APP_PORT_NUMBER);
 app.get("/", function (req, res) {
   console.log("At the /");
   res.render("index", {
-    level: "intro",
+    level: gb.levels[gb.currentLevel].level,
+    context: gb.levels[gb.currentLevel].context,
+    question: gb.levels[gb.currentLevel].question,
+    choices: gb.levels[gb.currentLevel].choices,
   });
 });
 
 /////////////////// POST REQUESTS ///////////////////
 app.post("/action", function (req, res) {
   console.log(req.body);
+  console.log(gb.progress(req.body.level, req.body.answer));
 });
 
 app.listen(port, function () {
