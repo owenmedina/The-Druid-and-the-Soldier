@@ -6,6 +6,9 @@ const path = require("path");
 const express = require("express");
 const liveReload = require("livereload"); // Reloading browser when public/ files change
 const connectLiveReload = require("connect-livereload"); // Appends script on alll the rendered/sent files through the server's response object
+const GameBrain = require(path.join(__dirname, "game-brain.js"));
+
+const gb = new GameBrain();
 
 const publicDirectory = path.join(__dirname, "public");
 
