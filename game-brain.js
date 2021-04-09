@@ -9,6 +9,14 @@ function normalize(answer) {
   return _.lowerCase(answer);
 }
 
+function checkOptionNumber(choices, answer) {
+  return (
+    choices.findIndex(
+      (currAns) => normalize(currAns.value) === normalize(answer)
+    ) + 1
+  );
+}
+
 function GameBrain() {}
 
 GameBrain.prototype.currentLevel = 0;
@@ -21,14 +29,17 @@ GameBrain.prototype.levels = [
       { value: "YES!", icon: "fight" },
       { value: "No, thanks", icon: "flag" },
     ],
-    {
-      cod: "mundanity",
-      description:
-        "The two heroes lived plain and normal lives and died peacefully on April 10th, 2100 (what a coincidence).",
-    }
+    [
+      {
+        option: 2,
+        cod: "mundanity",
+        description:
+          "The two heroes lived plain and normal lives and died peacefully on April 10th, 2100 (what a coincidence).",
+      },
+    ]
   ),
   new Level(
-    "There once was a mage and a soldier who were to form the most powerful union in all the land, yet of this they did not know.<br>Though their paths had certainly not few chances to cross, for they attended the same school of the Academy of the Dauntlessly and Magically Unsurpassed or ADMU for short, it was a particular class where their bond was all but inevitable.",
+    "There once was a druid and a fighter, named Iva and Eown, who were to form the most powerful union in all the land, yet of this they did not know.<br>Though their paths had certainly not few chances to cross, for they attended the same school of the Academy of the Dauntlessly and Magically Unsurpassed or ADMU for short, it was a particular class where their bond was all but inevitable.",
     "What was the title of this class?",
     "Magical Unions, Sacred Clans and Carnality",
     [
@@ -36,7 +47,50 @@ GameBrain.prototype.levels = [
       { value: "Magical Unions, Sacred Clans and Carnality", icon: "" },
       { value: "Introduction to Cults", icon: "" },
     ],
-    "Wawa"
+    [
+      {
+        option: 1,
+        cod: "cults",
+        description: `On the way to her home, one evening Iva came across a sacrificial festival for one of the local cults and became one of the unfortunate offerings of the evening. Eown, thinking it an innocent festival of one of his comrades, drowned himself in ales and unknowingly volunteered to be one of the festival's "esteemed guests".`,
+      },
+      {
+        option: 3,
+        cod: "cults",
+        description: `On the way to her home, one evening Iva came across a sacrificial festival for one of the local cults and became one of the unfortunate offerings of the evening. Eown, thinking it an innocent festival of one of his comrades, drowned himself in ales and unknowingly volunteered to be one of the festival's "esteemed guests".`,
+      },
+    ]
+  ),
+  new Level(
+    "True, it was that Iva and Eown were to meet in that class of unions, clans and carnality. After several lectures of such wise teaching from the great paladin Dacanay and much coy disregard from the two heroes, Eown asked the lovely druid if she would care to prepare for their test together. Not knowing he meant practice and study of a telepathic-nature, Iva invited Eown for preparations requiring not only his intellectual presence but his physical presence as well. Eown could barely believe what was going on. He'd thought not of an opportunity to be in her actual presence again. Hence, he did not hesitate.",
+    "In which area of the school, did Iva tell Eown to meet her for their preparations?",
+    "A den where her elemental clan was gathering",
+    [
+      { value: "A den where her elemental clan was gathering", icon: "" },
+      {
+        value:
+          "A dark forest where creatures were said to unleash their beastly nature",
+        icon: "",
+      },
+      {
+        value:
+          "The base of knowledge where books of different subjects were found",
+        icon: "",
+      },
+    ],
+    [
+      {
+        option: 2,
+        cod: "slaughter",
+        description:
+          "To their surprise, other beasts were present at the time of their meeting and the beasts ravaged both of them to death until they were nothing but beating hearts lying on the forest ground.",
+      },
+      {
+        option: 3,
+        cod: "philisophical quandry",
+        description:
+          "Iva and Eown stumbled upon a book that questioned every aspect of their existence. Driven to a life of eternal wondering, the two became vegetables (mmmm yummy) to their very last day.",
+      },
+    ]
   ),
 ];
 GameBrain.prototype.progress = function (level, answer) {
@@ -47,8 +101,13 @@ GameBrain.prototype.progress = function (level, answer) {
   ) {
     return GameBrain.prototype.levels[++GameBrain.prototype.currentLevel];
   } else {
-    return GameBrain.prototype.levels[GameBrain.prototype.currentLevel]
-      .gameOver;
+    const chosenOption = checkOptionNumber(
+      GameBrain.prototype.levels[GameBrain.prototype.currentLevel].choices,
+      answer
+    );
+    const gameOverArray =
+      GameBrain.prototype.levels[GameBrain.prototype.currentLevel].gameOver;
+    return gameOverArray.find((go) => go.option === chosenOption);
   }
 };
 
