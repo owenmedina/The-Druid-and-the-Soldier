@@ -11,8 +11,11 @@
   <body>
     <div class="game">
       <div class="game__story">
-        <%- include("partials/levels/level.ejs", {context: context, question:
-        question, choices: choices}); %>
+        <% if(level || level === 0) { %> <%-
+        include("partials/levels/level.ejs", {context: context, question:
+        question, choices: choices}); %> <% } else { %> <%-
+        include("partials/game-over.ejs", {cod: cod, description: description});
+        %> <% } %>
       </div>
       <div class="game__panel">
         <div class="game__animation"></div>

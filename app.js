@@ -9,6 +9,7 @@ const connectLiveReload = require("connect-livereload"); // Appends script on al
 const GameBrain = require(path.join(__dirname, "game-brain.js"));
 
 const gb = new GameBrain();
+let level = gb.levels[gb.currentLevel];
 
 const publicDirectory = path.join(__dirname, "public");
 
@@ -33,18 +34,14 @@ const port = parseInt(process.env.APP_PORT_NUMBER);
 /////////////////// GET REQUESTS ///////////////////
 app.get("/", function (req, res) {
   console.log("At the /");
-  res.render("index", {
-    level: gb.levels[gb.currentLevel].level,
-    context: gb.levels[gb.currentLevel].context,
-    question: gb.levels[gb.currentLevel].question,
-    choices: gb.levels[gb.currentLevel].choices,
-  });
+  res.render("index", level);
 });
 
 /////////////////// POST REQUESTS ///////////////////
 app.post("/action", function (req, res) {
   console.log(req.body);
-  console.log(gb.progress(req.body.level, req.body.answer));
+  level = gb.progress(req.body.level, req.body.answer);
+  res.redirect("/");
 });
 
 app.listen(port, function () {

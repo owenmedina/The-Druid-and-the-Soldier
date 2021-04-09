@@ -32,10 +32,11 @@ GameBrain.prototype.levels = [
     "What was the title of this class?",
     "Magical Unions, Sacred Clans and Carnality",
     [
-      "Allegiance of the Contemporary Mythic",
-      "Magical Unions, Sacred Clans and Carnality",
-      "Introduction to Cults",
-    ]
+      { value: "Allegiance of the Contemporary Mythic", icon: "" },
+      { value: "Magical Unions, Sacred Clans and Carnality", icon: "" },
+      { value: "Introduction to Cults", icon: "" },
+    ],
+    "Wawa"
   ),
 ];
 GameBrain.prototype.progress = function (level, answer) {
@@ -46,10 +47,8 @@ GameBrain.prototype.progress = function (level, answer) {
   ) {
     return GameBrain.prototype.levels[++GameBrain.prototype.currentLevel];
   } else {
-    console.log(
-      "real answer",
-      normalize(GameBrain.prototype.levels[GameBrain.prototype.currentLevel])
-    );
+    return GameBrain.prototype.levels[GameBrain.prototype.currentLevel]
+      .gameOver;
   }
 };
 
