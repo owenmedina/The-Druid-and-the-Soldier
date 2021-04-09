@@ -6,6 +6,14 @@
   --font-size-story: 2.25rem;
 }
 
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 *,
 *::before,
 *::after {
@@ -30,6 +38,23 @@ body {
 
 .mt-sm {
   margin-top: 2rem;
+}
+
+.action-form {
+  height: 100%;
+}
+
+.action-input {
+  padding: 1rem;
+  font-size: 2rem;
+  font-family: inherit;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--color-black);
+  color: white;
+  caret-color: transparent;
 }
 
 .game__animation {

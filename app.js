@@ -1,9 +1,12 @@
+"use strict";
+
 require("dotenv").config();
 
 const path = require("path");
 const express = require("express");
 const liveReload = require("livereload"); // Reloading browser when public/ files change
 const connectLiveReload = require("connect-livereload"); // Appends script on alll the rendered/sent files through the server's response object
+
 const publicDirectory = path.join(__dirname, "public");
 
 const liveReloadServer = liveReload.createServer(); // Creates a server that listens for changes
@@ -20,14 +23,21 @@ const app = express();
 app.use(connectLiveReload()); // tells express to use the module (line must be before static and dynamic routes)
 app.use(express.static(publicDirectory));
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
 
 const port = parseInt(process.env.APP_PORT_NUMBER);
 
+/////////////////// GET REQUESTS ///////////////////
 app.get("/", function (req, res) {
   console.log("At the /");
   res.render("index", {
     level: "intro",
   });
+});
+
+/////////////////// POST REQUESTS ///////////////////
+app.post("/action", function (req, res) {
+  console.log(req.body);
 });
 
 app.listen(port, function () {
