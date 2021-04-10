@@ -21,8 +21,7 @@ body {
 }
 
 .game-over {
-  color: var(--color-red-muted);
-  text-shadow: 0.2rem 0.2rem 0 var(--color-red-muted-dark);
+  color: $color-red-muted;
   &__heading {
     font-size: 6rem;
   }
