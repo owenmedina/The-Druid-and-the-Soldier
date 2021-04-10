@@ -7,17 +7,37 @@
     <link href="http://fonts.cdnfonts.com/css/visitor" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/css/style.css" />
     <title>Anniversary 2.0</title>
+    <script defer src="/js/typing.js"></script>
   </head>
   <body>
     <div class="game">
       <div class="game__story">
-        <%- include(`partials/levels/${level}.ejs`); %>
+        <% if(typeof level === "number") { %> <%-
+        include("partials/levels/level.ejs", {context: context, question:
+        question, choices: choices}); %> <% } else { %> <%-
+        include("partials/game-over.ejs", {cod: cod, description: description});
+        %> <% } %>
       </div>
       <div class="game__panel">
         <div class="game__animation"></div>
         <div class="game__user-input mt-sm">
-          <form action="/action" class="action-form" method="POST">
-            <input type="text" class="action-input" />
+          <form
+            action="/action"
+            class="action-form"
+            method="POST"
+            autocomplete="off"
+          >
+            <input
+              type="text"
+              class="action-input"
+              name="answer"
+              spellcheck="false"
+            />
+            <input
+              type="hidden"
+              name="level"
+              value="<%- typeof level !== `undefined` ? level : -1 %>"
+            />
           </form>
         </div>
       </div>

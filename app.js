@@ -6,6 +6,10 @@ const path = require("path");
 const express = require("express");
 const liveReload = require("livereload"); // Reloading browser when public/ files change
 const connectLiveReload = require("connect-livereload"); // Appends script on alll the rendered/sent files through the server's response object
+const GameBrain = require(path.join(__dirname, "game-brain.js"));
+
+const gb = new GameBrain();
+let level = gb.levels[gb.currentLevel];
 
 const publicDirectory = path.join(__dirname, "public");
 
@@ -30,14 +34,14 @@ const port = parseInt(process.env.APP_PORT_NUMBER);
 /////////////////// GET REQUESTS ///////////////////
 app.get("/", function (req, res) {
   console.log("At the /");
-  res.render("index", {
-    level: "intro",
-  });
+  res.render("index", level);
 });
 
 /////////////////// POST REQUESTS ///////////////////
 app.post("/action", function (req, res) {
   console.log(req.body);
+  level = gb.progress(req.body.level, req.body.answer);
+  res.redirect("/");
 });
 
 app.listen(port, function () {
