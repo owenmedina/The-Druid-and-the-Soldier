@@ -19,3 +19,19 @@ body {
     opacity: 0;
   }
 }
+
+.game-over {
+  color: var(--color-red-muted);
+  text-shadow: 0.2rem 0.2rem 0 var(--color-red-muted-dark);
+  &__heading {
+    font-size: 6rem;
+  }
+
+  &__sub-heading {
+    font-size: 2.25rem;
+  }
+
+  .play-again {
+    font-size: 3rem;
+  }
+}

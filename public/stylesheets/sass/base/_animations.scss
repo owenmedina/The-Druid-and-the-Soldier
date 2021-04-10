@@ -7,3 +7,14 @@
     opacity: 0;
   }
 }
+
+@keyframes emphasize {
+  0%,
+  100% {
+    transform: scale(1) translateZ(-1rem);
+  }
+
+  50% {
+    transform: scale(1.5) translateZ(1rem);
+  }
+}

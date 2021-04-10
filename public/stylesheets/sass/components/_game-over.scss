@@ -1,0 +1,21 @@
+.game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10rem 9rem;
+
+  &__heading {
+  }
+
+  &__sub-heading {
+  }
+
+  .play-again {
+    color: var(--color-red-muted);
+    text-shadow: 0.2rem 0.2rem 0 var(--color-red-muted-dark);
+    transform: translateY(0) scale(1);
+    animation: emphasize 1s infinite;
+  }
+}
