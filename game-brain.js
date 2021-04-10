@@ -94,7 +94,9 @@ GameBrain.prototype.levels = [
   ),
 ];
 GameBrain.prototype.progress = function (level, answer) {
+  const gameOverLevel = "-1";
   if (
+    (level === gameOverLevel && normalize(answer) === "awwyiiis") ||
     normalize(
       GameBrain.prototype.levels[GameBrain.prototype.currentLevel].answer
     ) === normalize(answer)
@@ -107,6 +109,8 @@ GameBrain.prototype.progress = function (level, answer) {
     );
     const gameOverArray =
       GameBrain.prototype.levels[GameBrain.prototype.currentLevel].gameOver;
+
+    GameBrain.prototype.currentLevel = -1;
     return gameOverArray.find((go) => go.option === chosenOption);
   }
 };

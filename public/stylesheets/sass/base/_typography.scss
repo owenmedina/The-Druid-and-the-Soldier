@@ -7,3 +7,15 @@ body {
 
   color: var(--color-white);
 }
+
+.type-text {
+  opacity: 0;
+}
+
+.choice {
+  opacity: 0;
+
+  &__value {
+    opacity: 0;
+  }
+}
