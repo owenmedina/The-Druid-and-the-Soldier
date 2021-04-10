@@ -5,4 +5,16 @@
   font-size: var(--font-size-story);
   line-height: 1.25;
   padding: 2rem;
+
+  .type-text {
+    opacity: 0;
+  }
+
+  .choice {
+    opacity: 0;
+
+    &__value {
+      opacity: 0;
+    }
+  }
 }

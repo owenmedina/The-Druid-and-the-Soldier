@@ -22,7 +22,7 @@ function GameBrain() {}
 GameBrain.prototype.currentLevel = 0;
 GameBrain.prototype.levels = [
   new Level(
-    "This is a text-based game that tells the story of two heroes that formed an unlikely but great pair. Your mission is to make decisions in the game to guide the two heroes to the secret treasure! <br /> Instructions: To choose one of the options, type in the option or its number into the input line.",
+    "This is a text-based game that tells the story of two heroes that formed an unlikely but great pair. Your mission is to make decisions in the game to guide the two heroes to the secret treasure! <br> Instructions: To choose one of the options, type in the option or its number into the input line.",
     "Would you like to play?",
     "YES!",
     [

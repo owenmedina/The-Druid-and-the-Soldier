@@ -88,6 +88,15 @@ body {
   line-height: 1.25;
   padding: 2rem;
 }
+.game__story .type-text {
+  opacity: 0;
+}
+.game__story .choice {
+  opacity: 0;
+}
+.game__story .choice__value {
+  opacity: 0;
+}
 
 .game__user-input {
   flex: 0 1 7.5%;
