@@ -11,6 +11,17 @@
   </head>
   <body>
     <div class="game">
+      <div class="game__music hidden">
+        <!-- <embed class="" src="/sounds/love.mp3" loop=1 controls=0 autostart=1></embed> -->
+        <!-- <iframe
+          src="/sounds/silence.mp3"
+          allow="autoplay"
+          class="audio-trigger"
+        ></iframe> -->
+        <audio loop autoplay class="audio-player">
+          <source src="/sounds/love.mp3" type="audio/mp3" />
+        </audio>
+      </div>
       <div class="game__story">
         <% if(typeof level === "number") { %> <%-
         include("partials/levels/level.ejs", {context: context, question:
@@ -29,12 +40,13 @@
           >
             <input
               type="text"
-              class="action-input"
+              class="action-form__answer"
               name="answer"
               spellcheck="false"
             />
             <input
               type="hidden"
+              class="action-form__level"
               name="level"
               value="<%- typeof level !== `undefined` ? level : -1 %>"
             />

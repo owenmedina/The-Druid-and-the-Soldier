@@ -5,3 +5,9 @@
 .mb-xl {
   margin-bottom: 15rem;
 }
+
+.hidden {
+  // display: none;
+  position: absolute;
+  z-index: -9999;
+}
