@@ -7,19 +7,15 @@
     <link href="http://fonts.cdnfonts.com/css/visitor" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/css/style.css" />
     <title>Anniversary 2.0</title>
+    <script defer src="/scripts/ejs/ejs.min.js"></script>
     <script defer src="/js/typing.js"></script>
+    <script type="module" defer src="/js/update-level.js"></script>
   </head>
   <body>
     <div class="game">
       <div class="game__music hidden">
-        <!-- <embed class="" src="/sounds/love.mp3" loop=1 controls=0 autostart=1></embed> -->
-        <!-- <iframe
-          src="/sounds/silence.mp3"
-          allow="autoplay"
-          class="audio-trigger"
-        ></iframe> -->
         <audio loop autoplay class="audio-player">
-          <source src="/sounds/love.mp3" type="audio/mp3" />
+          <!-- <source src="/sounds/love.mp3" type="audio/mp3" /> -->
         </audio>
       </div>
       <div class="game__story">
@@ -32,12 +28,7 @@
       <div class="game__panel">
         <div class="game__animation"></div>
         <div class="game__user-input mt-sm">
-          <form
-            action="/action"
-            class="action-form"
-            method="POST"
-            autocomplete="off"
-          >
+          <form action="" class="action-form" autocomplete="off">
             <input
               type="text"
               class="action-form__answer"

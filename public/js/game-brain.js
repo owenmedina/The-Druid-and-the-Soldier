@@ -1,12 +1,11 @@
 "use strict";
 
-const _ = require("lodash");
-const path = require("path");
-const Level = require(path.join(__dirname, "level.js"));
+import lowerCase from "/scripts/lodash-es/lowerCase.js";
+import Level from "./level.js";
 
 function normalize(answer) {
   console.log("normalize input", answer);
-  return _.lowerCase(answer);
+  return lowerCase(answer);
 }
 
 function checkOptionNumber(choices, answer) {
@@ -115,4 +114,5 @@ GameBrain.prototype.progress = function (level, answer) {
   }
 };
 
-module.exports = GameBrain;
+export default GameBrain;
+// module.exports = GameBrain;

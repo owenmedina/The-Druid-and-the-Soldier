@@ -1,17 +1,40 @@
 "use strict";
 
-require("dotenv").config();
+import env from "dotenv";
+env.config();
 
-const path = require("path");
-const express = require("express");
-const liveReload = require("livereload"); // Reloading browser when public/ files change
-const connectLiveReload = require("connect-livereload"); // Appends script on alll the rendered/sent files through the server's response object
-const GameBrain = require(path.join(__dirname, "game-brain.js"));
+import { fileURLToPath } from "url";
+import path, { dirname } from "path";
+import express from "express";
+import liveReload from "livereload"; // Reloading browser when public/ files change
+import connectLiveReload from "connect-livereload"; // Appends script on alll the rendered/sent files through the server's response object
+import GameBrain from "./public/js/game-brain.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const gb = new GameBrain();
 let level = gb.levels[gb.currentLevel];
+// const level = new {Level(}
+//   "This is a text-based game that tells the story of two heroes that formed an unlikely but great pair. Your mission is to make decisions in the game to guide the two heroes to the secret treasure! <br> Instructions: To choose one of the options, type in the option or its number into the input line.",
+//   "Would you like to play?",
+//   "YES!",
+//   [
+//     { value: "YES!", icon: "fight" },
+//     { value: "No, thanks", icon: "flag" },
+//   ],
+//   [
+//     {
+//       option: 2,
+//       cod: "mundanity",
+//       description:
+//         "The two heroes lived plain and normal lives and died peacefully on April 10th, 2100 (what a coincidence).",
+//     },
+//   ]
+// );
 
 const publicDirectory = path.join(__dirname, "public");
+const nodeModulesDirectory = path.join(__dirname, "node_modules");
 
 const liveReloadServer = liveReload.createServer(); // Creates a server that listens for changes
 liveReloadServer.watch(publicDirectory); // Watches changes in the public folder
@@ -25,7 +48,8 @@ liveReloadServer.server.once("connection", function () {
 
 const app = express();
 app.use(connectLiveReload()); // tells express to use the module (line must be before static and dynamic routes)
-app.use(express.static(publicDirectory));
+app.use(express.static(publicDirectory)); // static route for public files
+app.use("/scripts", express.static(nodeModulesDirectory)); // static route for node modules
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,11 +62,11 @@ app.get("/", function (req, res) {
 });
 
 /////////////////// POST REQUESTS ///////////////////
-app.post("/action", function (req, res) {
-  console.log(req.body);
-  level = gb.progress(req.body.level, req.body.answer);
-  res.redirect("/");
-});
+// app.post("/action", function (req, res) {
+//   console.log(req.body);
+//   level = gb.progress(req.body.level, req.body.answer);
+//   res.redirect("/");
+// });
 
 app.listen(port, function () {
   console.log(

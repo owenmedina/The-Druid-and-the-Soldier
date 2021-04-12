@@ -12,4 +12,4 @@ const Level = (function () {
   };
 })();
 
-module.exports = Level;
+export default Level;
