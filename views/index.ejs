@@ -7,10 +7,17 @@
     <link href="http://fonts.cdnfonts.com/css/visitor" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/css/style.css" />
     <title>Anniversary 2.0</title>
-    <script defer src="/js/typing.js"></script>
+    <script defer src="/scripts/ejs/ejs.min.js"></script>
+    <script type="module" defer src="/js/typing.js"></script>
+    <script type="module" defer src="/js/update-level.js"></script>
   </head>
   <body>
     <div class="game">
+      <div class="game__music hidden">
+        <audio loop autoplay class="audio-player">
+          <source src="/sounds/love.mp3" type="audio/mp3" />
+        </audio>
+      </div>
       <div class="game__story">
         <% if(typeof level === "number") { %> <%-
         include("partials/levels/level.ejs", {context: context, question:
@@ -21,20 +28,17 @@
       <div class="game__panel">
         <div class="game__animation"></div>
         <div class="game__user-input mt-sm">
-          <form
-            action="/action"
-            class="action-form"
-            method="POST"
-            autocomplete="off"
-          >
+          <form action="" class="action-form" autocomplete="off">
             <input
               type="text"
-              class="action-input"
+              class="action-form__answer"
               name="answer"
               spellcheck="false"
+              autofocus
             />
             <input
               type="hidden"
+              class="action-form__level"
               name="level"
               value="<%- typeof level !== `undefined` ? level : -1 %>"
             />
