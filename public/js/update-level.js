@@ -23,6 +23,7 @@ async function updateStoryContainer() {
 
   // Get the next level
   const nextLevel = gb.progress(level, answer);
+  console.log("nextLevel", nextLevel);
 
   // Send post to server for updated template
   const response = await fetch("/action", {
