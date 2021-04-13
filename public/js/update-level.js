@@ -1,5 +1,6 @@
 // const ejs = import ;
 import GameBrain from "./game-brain.js";
+import { typeParagraphs, typeChoices } from "./typing.js";
 
 const gb = new GameBrain();
 const gameStoryContainer = document.querySelector(".game__story");
@@ -7,25 +8,45 @@ const userForm = document.querySelector(".action-form");
 const userInput = document.querySelector(".action-form__answer");
 const userLevel = document.querySelector(".action-form__level");
 
-function updateStoryContainer() {
+function clearInput(input = userInput) {
+  input.value = "";
+  input.focus();
+}
+
+async function updateStoryContainer() {
   // Get the answer and the level
   const answer = userInput.value;
-  const level = (userLevel = userLevel.value);
+  const level = userLevel.value;
+
+  // Clear input
+  clearInput();
 
   // Get the next level
   const nextLevel = gb.progress(level, answer);
 
-  // Get level template or game over depending on nextLevel
-  ejs.renderFile(
-    `../../views/partials/${
-      nextLevel.level ? "levels/level.ejs" : "game-over.ejs"
-    }`,
-    nextLevel,
-    options,
-    function (err, htmlString) {
-      gameStoryContainer.innerHTML = htmlString;
-    }
-  );
+  // Send post to server for updated template
+  const response = await fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(nextLevel),
+  });
+
+  // Update page with new data
+  const data = await response.text();
+  console.log("data", data);
+  gameStoryContainer.innerHTML = data;
+
+  ////////////// Typing effect
+  let typing = false;
+  const paragraphs = document.querySelectorAll(".type-text");
+  console.log("paragraphs", paragraphs);
+  const choices = document.querySelectorAll(".choice");
+  console.log("choices", choices);
+
+  await typeParagraphs(paragraphs);
+  await typeChoices(choices);
 }
 
 userForm.addEventListener("submit", function (event) {

@@ -1,11 +1,10 @@
 "use strict";
 
-import lowerCase from "/scripts/lodash-es/lowerCase.js";
 import Level from "./level.js";
 
 function normalize(answer) {
   console.log("normalize input", answer);
-  return lowerCase(answer);
+  return answer.toLowerCase();
 }
 
 function checkOptionNumber(choices, answer) {

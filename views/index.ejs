@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="/stylesheets/css/style.css" />
     <title>Anniversary 2.0</title>
     <script defer src="/scripts/ejs/ejs.min.js"></script>
-    <script defer src="/js/typing.js"></script>
+    <script type="module" defer src="/js/typing.js"></script>
     <script type="module" defer src="/js/update-level.js"></script>
   </head>
   <body>
     <div class="game">
       <div class="game__music hidden">
         <audio loop autoplay class="audio-player">
-          <!-- <source src="/sounds/love.mp3" type="audio/mp3" /> -->
+          <source src="/sounds/love.mp3" type="audio/mp3" />
         </audio>
       </div>
       <div class="game__story">
@@ -34,6 +34,7 @@
               class="action-form__answer"
               name="answer"
               spellcheck="false"
+              autofocus
             />
             <input
               type="hidden"

@@ -26,7 +26,6 @@ function doneTyping(finish) {
 }
 
 function playTypeAnimation(textElement) {
-  console.log(`class: ${textElement.classList}`);
   typing = true;
   // store full text content
   const innerText = textElement.innerText;
@@ -40,23 +39,19 @@ function playTypeAnimation(textElement) {
   return new Promise(doneTyping);
 }
 
-async function typeParagraphs() {
-  for (let i = 0; i < paragraphsToType.length; i++) {
-    await playTypeAnimation(paragraphsToType[i]);
+export async function typeParagraphs(paragraphs = paragraphsToType) {
+  for (let i = 0; i < paragraphs.length; i++) {
+    await playTypeAnimation(paragraphs[i]);
   }
 }
 
-async function typeChoices() {
-  for (let i = 0; i < choicesToType.length; i++) {
-    console.log(
-      `choice[${i}]: ${choicesToType[i].lastElementChild.innerText} ${choicesToType[i].firstElementChild}`
-    );
-
+export async function typeChoices(choices = choicesToType) {
+  for (let i = 0; i < choices.length; i++) {
     // Reveal the icon
-    choicesToType[i].style.opacity = 1;
+    choices[i].style.opacity = 1;
 
     // Type out the text
-    await playTypeAnimation(choicesToType[i].lastElementChild);
+    await playTypeAnimation(choices[i].lastElementChild);
   }
 }
 
