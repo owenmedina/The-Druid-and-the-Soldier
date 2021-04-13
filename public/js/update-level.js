@@ -1,6 +1,6 @@
 // const ejs = import ;
 import GameBrain from "./game-brain.js";
-import { typeParagraphs, typeChoices } from "./typing.js";
+import { typeParagraphs, typeChoices, playTypeAnimation } from "./typing.js";
 
 const gb = new GameBrain();
 const gameStoryContainer = document.querySelector(".game__story");
@@ -23,7 +23,6 @@ async function updateStoryContainer() {
 
   // Get the next level
   const nextLevel = gb.progress(level, answer);
-  console.log("nextLevel", nextLevel);
 
   // Send post to server for updated template
   const response = await fetch("/action", {
@@ -36,15 +35,11 @@ async function updateStoryContainer() {
 
   // Update page with new data
   const data = await response.text();
-  console.log("data", data);
   gameStoryContainer.innerHTML = data;
 
-  ////////////// Typing effect
-  let typing = false;
+  // Typing effect
   const paragraphs = document.querySelectorAll(".type-text");
-  console.log("paragraphs", paragraphs);
   const choices = document.querySelectorAll(".choice");
-  console.log("choices", choices);
 
   await typeParagraphs(paragraphs);
   await typeChoices(choices);
@@ -52,7 +47,7 @@ async function updateStoryContainer() {
 
 userForm.addEventListener("submit", function (event) {
   event.preventDefault(); // prevent reload
-  console.log("default should have been prevented");
+  //   console.log("default should have been prevented");
 
   updateStoryContainer();
 });

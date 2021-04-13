@@ -1,16 +1,16 @@
 .action-form {
   height: 100%;
-}
 
-.action-input {
-  padding: 1rem;
-  font-size: 2rem;
-  font-family: inherit;
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: var(--color-black);
-  color: white;
-  caret-color: transparent; // makes default blinking cursor transparent
+  &__answer {
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: inherit;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--color-black);
+    color: white;
+    caret-color: transparent; // makes default blinking cursor transparent
+  }
 }

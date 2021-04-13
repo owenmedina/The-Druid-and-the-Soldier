@@ -15,15 +15,16 @@
     <div class="game">
       <div class="game__music hidden">
         <audio loop autoplay class="audio-player">
-          <source src="/sounds/love.mp3" type="audio/mp3" />
+          <!-- <source src="/sounds/love.mp3" type="audio/mp3" /> -->
         </audio>
       </div>
       <div class="game__story">
-        <% if(typeof level === "number") { %> <%-
-        include("partials/levels/level.ejs", {context: context, question:
-        question, choices: choices}); %> <% } else { %> <%-
-        include("partials/game-over.ejs", {cod: cod, description: description});
-        %> <% } %>
+        <% if (typeof level === "number") { %>
+          <%- include("partials/levels/level.ejs", {context: context, question: question, choices: choices}); %>
+        <% } else { %>
+          <%- include("partials/game-over.ejs", {cod: cod, description: description}); %>
+        <% } %>
+        
       </div>
       <div class="game__panel">
         <div class="game__animation"></div>

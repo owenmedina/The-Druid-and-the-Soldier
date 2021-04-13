@@ -3,7 +3,6 @@
 import Level from "./level.js";
 
 function normalize(answer) {
-  console.log("normalize input", answer);
   return answer.toLowerCase();
 }
 
@@ -63,7 +62,6 @@ GameBrain.prototype.levels = [
     "One day, just like all the others, he noticed her with",
     "Her receptacle and the black leather upon her feet",
     [
-      { value: "A den where her elemental clan was gathering", icon: "locate" },
       {
         value: "Her penguin-like trudge",
         icon: "locate",
@@ -73,7 +71,7 @@ GameBrain.prototype.levels = [
         icon: "locate",
       },
       {
-        value: "Her receptacle and black leather upon her feet",
+        value: "Her receptacle and the black leather upon her feet",
         icon: "locate",
       },
     ],
@@ -187,7 +185,7 @@ GameBrain.prototype.levels = [
   new Level(
     "On that day of their preparation, Eown had casually mentioned a show that the two might have been interested in. It in fact was a series of shows where worthy individuals planned and fought tirelessly against each other to sit at the throne of the kingdom. Iva had agreed yet a final date had not been decided. Eventually they had decided to see it on the 6th day of the week after Iva finished helping out at the local shop where they sold household commodities.<br>That afternoon, Eown met Iva and they rode together on his horse. They then saw the show with all its violence, trickery and carnality.",
     "What did they purchase for their time watching the show?",
-    "Tripping her leg",
+    "Joyeous Lemon",
     [
       { value: "Cooked Poultry of Kentucky", icon: "locate" },
       {
@@ -245,36 +243,6 @@ GameBrain.prototype.levels = [
     ]
   ),
   new Level(
-    "On the day they had planned to continue watching the show, Eown's kin prevented them from carrying out their plans. Instead they learned more about each other; their childhood, former fancies and other things. Later that evening, they decided to take a stroll.",
-    "Where did they stroll to?",
-    "Hours before the crack of dawn",
-    [
-      { value: "Stall for convenient goods", icon: "locate" },
-      {
-        value: "Local barber",
-        icon: "locate",
-      },
-      {
-        value: "Empty meadow in the village",
-        icon: "locate",
-      },
-    ],
-    [
-      {
-        option: 2,
-        cod: "stabbing",
-        description:
-          "Eown had decided to get a fresh cut to impress Iva. Not knowing the it was a trap set by the local hoodlums, Eown was cut by a sharp pair of shears in the back, expecting a cut of hair instead.",
-      },
-      {
-        option: 3,
-        cod: "disappearance",
-        description:
-          "Iva and Eown walked to that slope of land on the hill. Enjoying the vastness and beauty of the landscape, Iva did not notice Eown had disappeared into the night. Never to be found again.",
-      },
-    ]
-  ),
-  new Level(
     "About a week following the festival, Iva confessed to Eown of her feelings after he had asked to hold her hand. They became entwined, speaking and seeing each other as they could. And after several breathtaking days of seeing each other, Iva asked Eown to see a play with him.",
     "What was the play about?",
     "A child that transforms into a magical hero at the shout of a word",
@@ -311,6 +279,7 @@ GameBrain.prototype.levels = [
   new Level(
     `Underwhelmed by the show but overwhelmed by the growth of their relationship, Iva and Eown returned to Iva's dwelling where they ravenously kissed each other. They grabbed at each other, touched each other and were entranced in their own lips.<br><br><br><br>Driven to such passionate and strong feelings, Eown asked Iva "Will you be mine?"`,
     "To which, Iva replied",
+    "If you want me, you have me",
     [
       { value: "Fuck no", icon: "locate" },
       {
@@ -340,13 +309,7 @@ GameBrain.prototype.levels = [
 ];
 GameBrain.prototype.progress = function (level, answer) {
   const gameOverLevel = "-1";
-  console.log(
-    "answer in progress",
-    answer,
-    GameBrain.prototype.levels[GameBrain.prototype.currentLevel].choices[
-      parseInt(answer) - 1
-    ]
-  );
+
   if (
     (level === gameOverLevel && normalize(answer) === "awwyiiis") ||
     normalize(
