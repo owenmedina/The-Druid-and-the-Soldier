@@ -42,6 +42,7 @@ async function updateStoryContainer() {
 
   // Typing effect
   const paragraphs = document.querySelectorAll(".type-text");
+  console.log("paragraphs", paragraphs);
   const choices = document.querySelectorAll(".choice");
 
   await typeParagraphs(paragraphs);

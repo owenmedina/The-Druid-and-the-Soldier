@@ -306,28 +306,28 @@ GameBrain.prototype.win = {
 GameBrain.prototype.progress = function (level, answer) {
   const gameOverLevel = "-1";
   const levels = GameBrain.prototype.levels;
+  const restartGameOver =
+    level === gameOverLevel && normalize(answer) === "awwyiiis";
+  const answerByOption = parseInt(answer);
   const answerIsCorrect =
-    (level === gameOverLevel && normalize(answer) === "awwyiiis") ||
+    restartGameOver ||
     (level < levels.length &&
       (normalize(levels[level].answer) === normalize(answer) ||
-        (parseInt(answer) &&
-          levels[level].choices[parseInt(answer) - 1].value ===
+        (answerByOption &&
+          levels[level].choices[answerByOption - 1].value ===
             levels[level].answer)));
   if (level === levels.length) {
     GameBrain.prototype.currentLevel = 0;
-    return { type: "level", ...levels[GameBrain.prototype.currentLevel] };
+    return levels[GameBrain.prototype.currentLevel];
   }
   if (level === levels.length - 1 && answerIsCorrect)
-    // win game
-    return { type: "win", ...GameBrain.prototype.win };
-  if (answerIsCorrect)
-    console.log("answerIsCorrect", {
-      type: "level",
-      ...levels[GameBrain.prototype.currentLevel + 1],
-    });
-  return { type: "level", ...levels[++GameBrain.prototype.currentLevel] }; // next level
+    return GameBrain.prototype.win;
+  if (answerIsCorrect) return levels[++GameBrain.prototype.currentLevel]; // next level
 
-  const chosenOption = checkOptionNumber(levels[level].choices, answer);
+  const chosenOption = answerByOption
+    ? answerByOption
+    : checkOptionNumber(levels[level].choices, answer);
+  console.log("chosenOption", chosenOption);
   const gameOverArray = levels[level].gameOver;
 
   GameBrain.prototype.currentLevel = -1;
