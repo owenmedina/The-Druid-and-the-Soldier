@@ -15,23 +15,6 @@ const __dirname = dirname(__filename);
 
 const gb = new GameBrain();
 let level = gb.levels[gb.currentLevel];
-// const level = new {Level(}
-//   "This is a text-based game that tells the story of two heroes that formed an unlikely but great pair. Your mission is to make decisions in the game to guide the two heroes to the secret treasure! <br> Instructions: To choose one of the options, type in the option or its number into the input line.",
-//   "Would you like to play?",
-//   "YES!",
-//   [
-//     { value: "YES!", icon: "fight" },
-//     { value: "No, thanks", icon: "flag" },
-//   ],
-//   [
-//     {
-//       option: 2,
-//       cod: "mundanity",
-//       description:
-//         "The two heroes lived plain and normal lives and died peacefully on April 10th, 2100 (what a coincidence).",
-//     },
-//   ]
-// );
 
 const publicDirectory = path.join(__dirname, "public");
 const nodeModulesDirectory = path.join(__dirname, "node_modules");
@@ -69,20 +52,16 @@ app.post("/action", function (req, res) {
   const fileName = path.join(
     __dirname,
     `views/${
-      level.level ? "/partials/levels/level.ejs" : "/partials/game-over.ejs"
+      level.type === "level"
+        ? "/partials/levels/level.ejs"
+        : `/partials/${level.type === "win" ? "win.ejs" : "game-over.ejs"}`
     }`
   );
   ejs.renderFile(fileName, level, {}, function (err, htmlString) {
     console.log("err", err);
     res.send(htmlString);
-    console.log("htmlString", htmlString);
+    // console.log("htmlString", htmlString);
   });
-  //   res.redirect("/");
-  //   res.update(
-  //     "page_element",
-  //     level.level ? "/partials/levels/level" : "/partials/game-over",
-  //     level
-  //   );
 });
 
 app.listen(port, function () {

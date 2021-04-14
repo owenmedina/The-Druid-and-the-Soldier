@@ -16,7 +16,7 @@ function elementIsOnPage(element) {
 function type(index, element, text) {
   if (
     !elementIsOnPage(element) &&
-    document.querySelector(".choices").id.charAt(0) !== element.id.charAt(0)
+    document.querySelector(".choices")?.id.charAt(0) !== element.id.charAt(0)
   )
     return; // if element is no longer on the page stop typing
   if (text.charAt(index - 1) === lineBreakOpenTag) index += lineBreakTagLength; // output entire <br> if the next character is the line break opening tag

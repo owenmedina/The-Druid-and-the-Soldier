@@ -19,12 +19,15 @@
         </audio>
       </div>
       <div class="game__story">
-        <% if (typeof level === "number") { %>
+        <% if (type === "level") { %>
           <%- include("partials/levels/level.ejs", {context: context, question: question, choices: choices}); %>
+        <% } else if (type === "win") { %>
+          <%- include("partials/win.ejs", {greeting: greeting, body: body, closing: closing, signature: signature, ps: ps, playAgain: playAgain}); %>
         <% } else { %>
           <%- include("partials/game-over.ejs", {cod: cod, description: description}); %>
-        <% } %>
-        
+          <% } %>
+
+          
       </div>
       <div class="game__panel">
         <div class="game__animation"></div>
@@ -41,7 +44,7 @@
               type="hidden"
               class="action-form__level"
               name="level"
-              value="<%- typeof level !== `undefined` ? level : -1 %>"
+              value="<%- level %>"
             />
           </form>
         </div>

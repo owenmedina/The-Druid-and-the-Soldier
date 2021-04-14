@@ -1,6 +1,7 @@
 "use strict";
 
 import Level from "./level.js";
+import GameOver from "./game-over.js";
 
 function normalize(answer) {
   return answer.toLowerCase();
@@ -27,12 +28,11 @@ GameBrain.prototype.levels = [
       { value: "No, thanks", icon: "flag" },
     ],
     [
-      {
-        option: 2,
-        cod: "mundanity",
-        description:
-          "The two heroes lived plain and normal lives and died peacefully on April 10th, 2100 (what a coincidence).",
-      },
+      new GameOver(
+        2,
+        "mundanity",
+        "The two heroes lived plain and normal lives and died peacefully on April 10th, 2100 (what a coincidence)."
+      ),
     ]
   ),
   new Level(
@@ -45,16 +45,16 @@ GameBrain.prototype.levels = [
       { value: "Introduction to Cults", icon: "locate" },
     ],
     [
-      {
-        option: 1,
-        cod: "cults",
-        description: `On the way to her home, one evening Iva came across a sacrificial festival for one of the local cults and became one of the unfortunate offerings of the evening. Eown, thinking it an innocent festival of one of his comrades, drowned himself in ales and unknowingly volunteered to be one of the festival's "esteemed guests".`,
-      },
-      {
-        option: 3,
-        cod: "cults",
-        description: `On the way to her home, one evening Iva came across a sacrificial festival for one of the local cults and became one of the unfortunate offerings of the evening. Eown, thinking it an innocent festival of one of his comrades, drowned himself in ales and unknowingly volunteered to be one of the festival's "esteemed guests".`,
-      },
+      new GameOver(
+        1,
+        "cults",
+        `On the way to her home, one evening Iva came across a sacrificial festival for one of the local cults and became one of the unfortunate offerings of the evening. Eown, thinking it an innocent festival of one of his comrades, drowned himself in ales and unknowingly volunteered to be one of the festival's "esteemed guests".`
+      ),
+      new GameOver(
+        3,
+        "cults",
+        `On the way to her home, one evening Iva came across a sacrificial festival for one of the local cults and became one of the unfortunate offerings of the evening. Eown, thinking it an innocent festival of one of his comrades, drowned himself in ales and unknowingly volunteered to be one of the festival's "esteemed guests".`
+      ),
     ]
   ),
   new Level(
@@ -76,18 +76,16 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 1,
-        cod: "trampling",
-        description:
-          "Possessed by a random rush of courage, he ran up to the girl, calling her name. But she was not Iva and therefore proceeded to trample over Eown until he was dead.",
-      },
-      {
-        option: 2,
-        cod: "shining",
-        description:
-          "Possessed by a random rush of courage, he ran up to the girl, calling her name. When the lady turned around, not only did Eown realize it was not her but also that the reflection from her spectacles were so bright that it vaporized his eyes.",
-      },
+      new GameOver(
+        1,
+        "trampling",
+        "Possessed by a random rush of courage, he ran up to the girl, calling her name. But she was not Iva and therefore proceeded to trample over Eown until he was dead."
+      ),
+      new GameOver(
+        2,
+        "shining",
+        "Possessed by a random rush of courage, he ran up to the girl, calling her name. When the lady turned around, not only did Eown realize it was not her but also that the reflection from her spectacles were so bright that it vaporized his eyes."
+      ),
     ]
   ),
   new Level(
@@ -108,22 +106,20 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 2,
-        cod: "slaughter",
-        description:
-          "To their surprise, other beasts were present at the time of their meeting and the beasts ravaged both of them to death until they were nothing but beating hearts lying on the forest ground.",
-      },
-      {
-        option: 3,
-        cod: "philisophical quandry",
-        description:
-          "Iva and Eown stumbled upon a book that questioned every aspect of their existence. Driven to a life of eternal wondering, the two became vegetables (mmmm yummy) to their very last day.",
-      },
+      new GameOver(
+        2,
+        "slaughter",
+        "To their surprise, other beasts were present at the time of their meeting and the beasts ravaged both of them to death until they were nothing but beating hearts lying on the forest ground."
+      ),
+      new GameOver(
+        3,
+        "philisophical quandry",
+        "Iva and Eown stumbled upon a book that questioned every aspect of their existence. Driven to a life of eternal wondering, the two became vegetables (mmmm yummy) to their very last day."
+      ),
     ]
   ),
   new Level(
-    "At the time and place of their meeting, the two had convened to prepare for their tests. However, not much preparation had occurred in the first couple of hours. The two had spoken about combat, toxins and many other non-sensical things until one of their companions had asked them to vacate the den. Iva asked Eown if he wanted to take their study to a different place. To this Eown responded with an invitation to take her to her place of dwelling for he it was on the way to a place he wanted to go to.",
+    "At the time and place of their meeting, the two had convened to prepare for their tests. However, not much preparation had occurred in the first couple of hours. The two had spoken about combat, toxins and many other non-sensical things until one of their companions had asked them to vacate the den. Iva asked Eown if he wanted to take their study to a different place. To this Eown responded with an invitation to take her to her place of dwelling for it was on the way to a place he wanted to go to.",
     "What was the place?",
     "The Bakery of Discourse",
     [
@@ -138,18 +134,16 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 1,
-        cod: "unrequited love",
-        description:
-          "Upon arrival at the Flapjack Domicile, Iva was overcome with profound love that she wed the domicile immediately. Eown watched as the girl he fancied fell for something else.",
-      },
-      {
-        option: 3,
-        cod: "alcoholic poisoning",
-        description:
-          "Thinking liquid courage would help him win the heart of the fair druid, Eown consumed 5 barrels of alcohol at the tavern. Within minutes, he collapsed and died.",
-      },
+      new GameOver(
+        1,
+        "unrequited love",
+        "Upon arrival at the Flapjack Domicile, Iva was overcome with profound love that she wed the domicile immediately. Eown watched as the girl he fancied fell for something else."
+      ),
+      new GameOver(
+        3,
+        "alcoholic poisoning",
+        "Thinking liquid courage would help him win the heart of the fair druid, Eown consumed 5 barrels of alcohol at the tavern. Within minutes, he collapsed and died."
+      ),
     ]
   ),
   new Level(
@@ -168,18 +162,16 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 1,
-        cod: "skinning",
-        description:
-          "One day, lost in the fun they were having, Eown erroneously tugged on Iva's hair a bit too strongly, consequently skinning her scalp and exposing her insides. Iva tragically bled out.",
-      },
-      {
-        option: 2,
-        cod: "embarrassment",
-        description:
-          "Since Eown grew up jokingly doing it to his siblings, he thought it ok to the same to Iva. To no surprise, she was caught off guard when he did it and Eown realized the potential inappropriateness of the trick.",
-      },
+      new GameOver(
+        1,
+        "skinning",
+        "One day, lost in the fun they were having, Eown erroneously tugged on Iva's hair a bit too strongly, consequently skinning her scalp and exposing her insides. Iva tragically bled out."
+      ),
+      new GameOver(
+        2,
+        "embarrassment",
+        "Since Eown grew up jokingly doing it to his siblings, he thought it ok to the same to Iva. To no surprise, she was caught off guard when he did it and Eown realized the potential inappropriateness of the trick."
+      ),
     ]
   ),
   new Level(
@@ -198,18 +190,16 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 1,
-        cod: "Black Death",
-        description:
-          "Not realizing one of the pieces of poultry was actually a rat with bacillus, Eown and Iva became the first known people to have died during the Black Death.",
-      },
-      {
-        option: 3,
-        cod: "chickpea",
-        description:
-          "Lacking the fine groundwork of a pestle, Iva unknowingly swallowed a chickpea and choked to death.",
-      },
+      new GameOver(
+        1,
+        "Black Death",
+        "Not realizing one of the pieces of poultry was actually a rat with bacillus, Eown and Iva became the first known people to have died during the Black Death."
+      ),
+      new GameOver(
+        3,
+        "chickpea",
+        "Lacking the fine groundwork of a pestle, Iva unknowingly swallowed a chickpea and choked to death."
+      ),
     ]
   ),
   new Level(
@@ -228,18 +218,16 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 2,
-        cod: "fomo",
-        description:
-          "Being denied by her mother, Iva had returned to their home early that evening. Thinking of what could have happened, Iva froze in a moment of longing, forever stuck in the uncertainty of what might have been.",
-      },
-      {
-        option: 3,
-        cod: "bottle instead of slipper",
-        description:
-          "Iva was permitted to stay on the condition that she left at midnight. So at the stroke of midnight, Iva bid Owen adieu. Still being intoxicated, Owen came over to bid her farewell when he fell on a glass bottle.",
-      },
+      new GameOver(
+        2,
+        "fomo",
+        "Being denied by her mother, Iva had returned to their home early that evening. Thinking of what could have happened, Iva froze in a moment of longing, forever stuck in the uncertainty of what might have been."
+      ),
+      new GameOver(
+        3,
+        "bottle instead of slipper",
+        "Iva was permitted to stay on the condition that she left at midnight. So at the stroke of midnight, Iva bid Owen adieu. Still being intoxicated, Owen came over to bid her farewell when he fell on a glass bottle."
+      ),
     ]
   ),
   new Level(
@@ -262,18 +250,16 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 2,
-        cod: "punctuality",
-        description:
-          "After Eown runs late to their scheduled date, Iva realizes he is not coming and offers his seat to another person. Iva gets along with this person and soon forgets she even met Eown.",
-      },
-      {
-        option: 3,
-        cod: "elephant",
-        description:
-          "Iva and Eown gazed as they watched the soaring elephant. Eown was so drawn to the spectacle that he drew closer to the elephant not knowing this was where the elephant was to land. And so it did, squashing Eown to death.",
-      },
+      new GameOver(
+        2,
+        "punctuality",
+        "After Eown runs late to their scheduled date, Iva realizes he is not coming and offers his seat to another person. Iva gets along with this person and soon forgets she even met Eown."
+      ),
+      new GameOver(
+        3,
+        "elephant",
+        "Iva and Eown gazed as they watched the soaring elephant. Eown was so drawn to the spectacle that he drew closer to the elephant not knowing this was where the elephant was to land. And so it did, squashing Eown to death."
+      ),
     ]
   ),
   new Level(
@@ -292,46 +278,60 @@ GameBrain.prototype.levels = [
       },
     ],
     [
-      {
-        option: 1,
-        cod: "heartache",
-        description:
-          "Eown's heart breaks after being denied by Iva but he respects her decision.",
-      },
-      {
-        option: 3,
-        cod: "disappearance",
-        description:
-          "Eown's heart breaks after being denied by Iva but he respects her decision.",
-      },
+      new GameOver(
+        1,
+        "heartache",
+        "Eown's heart breaks after being denied by Iva but he respects her decision."
+      ),
+      new GameOver(
+        3,
+        "heartache",
+        "Eown's heart breaks after being denied by Iva but he respects her decision."
+      ),
     ]
   ),
 ];
+GameBrain.prototype.win = {
+  type: "win",
+  greeting: "Happy Anniversary bubu!",
+  body:
+    "I know it’s not the perfect anniversary but I hope you enjoyed the gift and our day as much as I did (yes I am writing this in the past tense haha). I’m sorry about that talk we had. Well I’m sorry that you know we’re going through this. But I love you so much and I’m so happy you wanna keep on trying and that you want to help. I love you so much baby. Hopefully the added time will help me cope with it better and hopefully we’ll get to see each other soon so that we can have more happy days.<br>You make me so happy. Thank you for being here.",
+  closing: "Love",
+  signature: "Owen (krokak)",
+  ps:
+    "There be money waiting for you in your account so you can order from the Flapjack Domicile 😜 Late anniversary gift and early end of the quarter gift. I’m so proud of you 😚<br>I love you baby happy anniversary ♥️",
+  playAgain: "Enter anything to play again",
+  level: GameBrain.prototype.levels.length,
+};
 GameBrain.prototype.progress = function (level, answer) {
   const gameOverLevel = "-1";
-
-  if (
+  const levels = GameBrain.prototype.levels;
+  const answerIsCorrect =
     (level === gameOverLevel && normalize(answer) === "awwyiiis") ||
-    normalize(
-      GameBrain.prototype.levels[GameBrain.prototype.currentLevel].answer
-    ) === normalize(answer) ||
-    GameBrain.prototype.levels[GameBrain.prototype.currentLevel].choices[
-      parseInt(answer) - 1
-    ].value ===
-      GameBrain.prototype.levels[GameBrain.prototype.currentLevel].answer
-  ) {
-    return GameBrain.prototype.levels[++GameBrain.prototype.currentLevel];
-  } else {
-    const chosenOption = checkOptionNumber(
-      GameBrain.prototype.levels[GameBrain.prototype.currentLevel].choices,
-      answer
-    );
-    const gameOverArray =
-      GameBrain.prototype.levels[GameBrain.prototype.currentLevel].gameOver;
-
-    GameBrain.prototype.currentLevel = -1;
-    return gameOverArray.find((go) => go.option === chosenOption);
+    (level < levels.length &&
+      (normalize(levels[level].answer) === normalize(answer) ||
+        (parseInt(answer) &&
+          levels[level].choices[parseInt(answer) - 1].value ===
+            levels[level].answer)));
+  if (level === levels.length) {
+    GameBrain.prototype.currentLevel = 0;
+    return { type: "level", ...levels[GameBrain.prototype.currentLevel] };
   }
+  if (level === levels.length - 1 && answerIsCorrect)
+    // win game
+    return { type: "win", ...GameBrain.prototype.win };
+  if (answerIsCorrect)
+    console.log("answerIsCorrect", {
+      type: "level",
+      ...levels[GameBrain.prototype.currentLevel + 1],
+    });
+  return { type: "level", ...levels[++GameBrain.prototype.currentLevel] }; // next level
+
+  const chosenOption = checkOptionNumber(levels[level].choices, answer);
+  const gameOverArray = levels[level].gameOver;
+
+  GameBrain.prototype.currentLevel = -1;
+  return gameOverArray.find((go) => go.option === chosenOption);
 };
 
 export default GameBrain;
