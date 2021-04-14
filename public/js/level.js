@@ -9,6 +9,7 @@ const Level = (function () {
     this.answer = answer;
     this.choices = choices;
     this.gameOver = gameOver;
+    this.type = "level";
   };
 })();
 

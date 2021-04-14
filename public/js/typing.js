@@ -16,7 +16,7 @@ function elementIsOnPage(element) {
 function type(index, element, text) {
   if (
     !elementIsOnPage(element) &&
-    document.querySelector(".choices").id.charAt(0) !== element.id.charAt(0)
+    document.querySelector(".choices")?.id.charAt(0) !== element.id.charAt(0)
   )
     return; // if element is no longer on the page stop typing
   if (text.charAt(index - 1) === lineBreakOpenTag) index += lineBreakTagLength; // output entire <br> if the next character is the line break opening tag
@@ -54,7 +54,7 @@ export function playTypeAnimation(textElement) {
 export async function typeParagraphs(paragraphs = paragraphsToType) {
   for (let i = 0; i < paragraphs.length; i++) {
     const paragraphPromise = await playTypeAnimation(paragraphs[i]);
-    console.log(`${paragraphs[i].innerText} is typing: ${paragraphPromise}`);
+    // console.log(`${paragraphs[i].innerText} is typing: ${paragraphPromise}`);
   }
 }
 
@@ -65,7 +65,7 @@ export async function typeChoices(choices = choicesToType) {
 
     // Type out the text
     const choicePromise = await playTypeAnimation(choices[i].lastElementChild);
-    console.log(`${choices[i].innerText} is typing: ${choicePromise}`);
+    // console.log(`${choices[i].innerText} is typing: ${choicePromise}`);
   }
 }
 

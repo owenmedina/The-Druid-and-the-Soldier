@@ -23,6 +23,7 @@ async function updateStoryContainer() {
 
   // Get the next level
   const nextLevel = gb.progress(level, answer);
+  console.log("nextLevel", nextLevel);
 
   // Send post to server for updated template
   const response = await fetch("/action", {
@@ -36,9 +37,12 @@ async function updateStoryContainer() {
   // Update page with new data
   const data = await response.text();
   gameStoryContainer.innerHTML = data;
+  // Update level
+  userLevel.value = nextLevel.level;
 
   // Typing effect
   const paragraphs = document.querySelectorAll(".type-text");
+  console.log("paragraphs", paragraphs);
   const choices = document.querySelectorAll(".choice");
 
   await typeParagraphs(paragraphs);

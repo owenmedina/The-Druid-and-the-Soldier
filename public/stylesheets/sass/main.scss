@@ -1,3 +1,4 @@
+@import "abstract/mixins";
 @import "abstract/variables";
 
 @import "base/animations";
@@ -8,9 +9,11 @@
 @import "components/action-form";
 @import "components/animation";
 @import "components/game-over";
+@import "components/glitch";
 @import "components/icons";
 @import "components/story";
 @import "components/user-input";
 
-@import "layout/game";
 @import "layout/footer";
+@import "layout/game";
+@import "layout/win";

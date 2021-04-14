@@ -21,38 +21,52 @@
 
 @keyframes glitch {
   0% {
-    text-shadow: 0.05em 0 0 rgba($color-red-muted-dark, 0.75),
-      -0.025em -0.05em 0 rgba($color-blue-muted, 0.75),
-      -0.025em 0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-0-14(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
   14% {
-    text-shadow: 0.05em 0 0 rgba($color-red-muted-dark, 0.75),
-      -0.025em -0.05em 0 rgba($color-blue-muted, 0.75),
-      -0.025em 0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-0-14(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
   15% {
-    text-shadow: -0.05em -0.025em 0 rgba($color-red-muted-dark, 0.75),
-      0.025em 0.025em 0 rgba($color-blue-muted, 0.75),
-      -0.05em -0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-15-49(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
   49% {
-    text-shadow: -0.05em -0.025em 0 rgba($color-red-muted-dark, 0.75),
-      0.025em 0.025em 0 rgba($color-blue-muted, 0.75),
-      -0.05em -0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-15-49(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
   50% {
-    text-shadow: 0.025em 0.05em 0 rgba($color-red-muted-dark, 0.75),
-      0.05em 0 0 rgba($color-blue-muted, 0.75),
-      0 -0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-50-99(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
   99% {
-    text-shadow: 0.025em 0.05em 0 rgba($color-red-muted-dark, 0.75),
-      0.05em 0 0 rgba($color-blue-muted, 0.75),
-      0 -0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-50-99(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
   100% {
-    text-shadow: -0.025em 0 0 rgba($color-red-muted-dark, 0.75),
-      -0.025em -0.025em 0 rgba($color-blue-muted, 0.75),
-      -0.025em -0.05em 0 rgba($color-pink-pastel, 0.75);
+    @include glitch-text-shadow-100(
+      $color-red-muted-dark,
+      $color-blue-muted,
+      $color-pink-pastel
+    );
   }
 }
