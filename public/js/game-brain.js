@@ -299,36 +299,39 @@ GameBrain.prototype.win = {
   closing: "Love",
   signature: "Owen (krokak)",
   ps:
-    "There be money waiting for you in your account so you can order from the Flapjack Domicile 😜 Late anniversary gift and early end of the quarter gift. I’m so proud of you 😚<br>I love you baby happy anniversary ♥️",
+    "There be money waiting for you in your account so you can order from the Flapjack Domicile. Late anniversary gift and early end of the quarter gift. I’m so proud of you. <br> I love you baby happy anniversary.",
   playAgain: "Enter anything to play again",
   level: GameBrain.prototype.levels.length,
 };
 GameBrain.prototype.progress = function (level, answer) {
-  const gameOverLevel = "-1";
+  const levelInt = parseInt(level);
+  const gameOverLevel = -1;
   const levels = GameBrain.prototype.levels;
   const restartGameOver =
-    level === gameOverLevel && normalize(answer) === "awwyiiis";
+    levelInt === gameOverLevel && normalize(answer) === "awwyiiis";
   const answerByOption = parseInt(answer);
   const answerIsCorrect =
     restartGameOver ||
-    (level < levels.length &&
-      (normalize(levels[level].answer) === normalize(answer) ||
+    (levelInt < levels.length &&
+      (normalize(levels[levelInt].answer) === normalize(answer) ||
         (answerByOption &&
-          levels[level].choices[answerByOption - 1].value ===
-            levels[level].answer)));
-  if (level === levels.length) {
+          levels[levelInt].choices[answerByOption - 1].value ===
+            levels[levelInt].answer)));
+  if (levelInt === levels.length) {
     GameBrain.prototype.currentLevel = 0;
     return levels[GameBrain.prototype.currentLevel];
   }
-  if (level === levels.length - 1 && answerIsCorrect)
+  if (levelInt === levels.length - 1) {
     return GameBrain.prototype.win;
+  }
+
   if (answerIsCorrect) return levels[++GameBrain.prototype.currentLevel]; // next level
 
   const chosenOption = answerByOption
     ? answerByOption
-    : checkOptionNumber(levels[level].choices, answer);
+    : checkOptionNumber(levels[levelInt].choices, answer);
   console.log("chosenOption", chosenOption);
-  const gameOverArray = levels[level].gameOver;
+  const gameOverArray = levels[levelInt].gameOver;
 
   GameBrain.prototype.currentLevel = -1;
   return gameOverArray.find((go) => go.option === chosenOption);

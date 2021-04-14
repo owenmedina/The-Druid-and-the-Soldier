@@ -37,7 +37,6 @@ function doneTyping(finish) {
 }
 
 export function playTypeAnimation(textElement) {
-  console.log("textElement.innerText", textElement.innerText);
   typing = true;
   // store full text content
   const innerText = textElement.innerText;
@@ -53,10 +52,9 @@ export function playTypeAnimation(textElement) {
 }
 
 export async function typeParagraphs(paragraphs = paragraphsToType) {
-  console.log("paragraphs.length", paragraphs.length);
   for (let i = 0; i < paragraphs.length; i++) {
     const paragraphPromise = await playTypeAnimation(paragraphs[i]);
-    console.log(`${paragraphs[i].innerText} is typing: ${paragraphPromise}`);
+    // console.log(`${paragraphs[i].innerText} is typing: ${paragraphPromise}`);
   }
 }
 
@@ -67,7 +65,7 @@ export async function typeChoices(choices = choicesToType) {
 
     // Type out the text
     const choicePromise = await playTypeAnimation(choices[i].lastElementChild);
-    console.log(`${choices[i].innerText} is typing: ${choicePromise}`);
+    // console.log(`${choices[i].innerText} is typing: ${choicePromise}`);
   }
 }
 

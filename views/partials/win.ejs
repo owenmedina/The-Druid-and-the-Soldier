@@ -1,13 +1,12 @@
 <div class="win">
-    <div class="win__greeting">
-      <span class="glitch-text" aria-hidden="true"><%= greeting %></span>
-      <%= greeting %>
-      <span class="glitch-text" aria-hidden="true"><%= greeting %></span>
+    <div class="win__greeting glitch mt-sm">
+      <span class="glitch__text" aria-hidden="true"><%- greeting %></span>
+      <%- greeting %>
+      <span class="glitch__text" aria-hidden="true"><%- greeting %></span>
     </div>
-    <div class="win__body"><%= body %></div>
-    <div class="win__closing"><%= closing %>,</div>
-    <div class="win__signature"><%= signature %></div>
-    <div class="win__ps"><%= ps %></div>
-    <div class="win__play-again"><%= playAgain %></div>
-    <div class="hidden level"><%= level %></div>
+    <div class="win__body type-text" id="<%- level %>-body"><%- body %></div>
+    <div class="win__closing type-text" id="<%- level %>-closing"><%- closing %>,</div>
+    <div class="win__signature type-text" id="<%- level %>-signature"><%- signature %></div>
+    <div class="win__ps type-text" id="<%- level %>-ps">P.S. <%- ps %></div>
+    <div class="win__play-again type-text" id="<%- level %>-play-again"><%- playAgain %></div>
   </div>

@@ -1,2 +1,31 @@
 .win {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  color: $color-pink-pastel;
+
+  &__greeting {
+    font-size: 2.5rem;
+  }
+
+  &__body {
+    margin: 3rem 1rem 5rem 2rem;
+    text-align: justify;
+  }
+
+  &__closing {
+  }
+
+  &__signature {
+  }
+
+  &__ps {
+    margin-top: 3rem;
+  }
+
+  &__play-again {
+    font-size: 1.5rem;
+    align-self: center;
+    color: $color-grey-light;
+  }
 }
